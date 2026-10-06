@@ -35,7 +35,7 @@ export function WidgetIsland(props: Props) {
     <div
       ref={container}
       className={cn(
-        "slide-in w-100 h-dvh absolute z-10 top-0 left-0 bg-linear-t-r from-background/70 via-background/30 to-transparent",
+        "slide-in w-100 h-dvh absolute z-10 top-0 left-0 bg-linear-to-r from-background/70 via-background/30 to-transparent",
         position === "right" && "bg-linear-to-l right-0 left-auto",
         className,
       )}

@@ -7,6 +7,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Navigation />
 
       <div className="grid grid-cols-[400px_1fr_400px] gap-y-10">
+        <section className="row-start-2 col-start-1 col-span-3">{children}</section>
+
         <div className="p-4 pb-0">
           <LogoWidget />
         </div>
@@ -14,8 +16,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="col-start-3 p-4 pb-0">
           <ToolsWidget />
         </div>
-
-        <section className="row-start-2 col-start-1 col-span-3">{children}</section>
       </div>
     </main>
   );

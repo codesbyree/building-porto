@@ -42,7 +42,7 @@ export function SelectedFloorWidget() {
               type="button"
               onClick={() => handleSelect(floor)}
               className={cn(
-                "flex h-10 min-w-8 w-full items-center justify-center rounded-lg px-2 text-xs font-medium text-gray-50/60 transition-colors hover:bg-gray-50/10 hover:text-gray-50",
+                "flex h-10 min-w-8 w-full items-center justify-center rounded-lg px-2 text-xs font-medium text-gray-50/60 transition-colors hover:bg-gray-50/10 hover:text-gray-50 cursor-pointer",
                 isActive && "bg-primary text-gray-50 hover:bg-primary/70",
               )}
             >
