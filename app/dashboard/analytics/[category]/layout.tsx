@@ -7,14 +7,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <AnalyticsSummary />
       </aside>
 
-      <section className="flex flex-col gap-4 col-span-2 px-4">
+      <main className="flex flex-col gap-4 col-span-2 px-4 pl-1">
         <div className="flex items-center justify-between gap-4">
           <AnalyticsTabsNav />
           <AnalyticsSearchInput />
         </div>
 
         {children}
-      </section>
+      </main>
     </div>
   );
 }

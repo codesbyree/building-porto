@@ -37,7 +37,7 @@ export function AnalyticsSearchInput() {
       placeholder="Search logs..."
       value={value}
       onChange={(event) => handleChange(event.target.value)}
-      className="max-w-56 bg-gray-950/50 dark:bg-gray-950/50 h-10 p-4! text-sm! placeholder:text-sm! border-none! outline! outline-gray-950/80 focus-visible:outline-primary! text-gray-50! placeholder:text-gray-50/70! rounded-md!"
+      className="max-w-56 bg-gray-950/50 dark:bg-gray-950/60 h-10 p-4! text-sm! placeholder:text-sm! border-none! outline! outline-gray-950/80 focus-visible:outline-primary! text-gray-50! placeholder:text-gray-50/70! rounded-md!"
     />
   );
 }

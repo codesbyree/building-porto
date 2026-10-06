@@ -1,54 +1,45 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area"
-import { cn } from "cn"
+import * as React from "react";
+import { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area";
 
-function ScrollArea({
-  className,
-  children,
-  ...props
-}: ScrollAreaPrimitive.Root.Props) {
-  return (
-    <ScrollAreaPrimitive.Root
-      data-slot="scroll-area"
-      className={cn("relative", className)}
-      {...props}
-    >
-      <ScrollAreaPrimitive.Viewport
-        data-slot="scroll-area-viewport"
-        className="size-full rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1"
-      >
-        {children}
-      </ScrollAreaPrimitive.Viewport>
-      <ScrollBar />
-      <ScrollAreaPrimitive.Corner />
-    </ScrollAreaPrimitive.Root>
-  )
+import { cn } from "@/lib/utils";
+
+interface ScrollAreaProps extends React.ComponentProps<typeof ScrollAreaPrimitive.Root> {
+  hideScrollBar?: boolean;
 }
 
-function ScrollBar({
-  className,
-  orientation = "vertical",
-  ...props
-}: ScrollAreaPrimitive.Scrollbar.Props) {
+export function ScrollArea({ className, children, hideScrollBar = false, ...props }: ScrollAreaProps) {
+  return (
+    <ScrollAreaPrimitive.Root className={cn("relative group overflow-hidden", className)} {...props}>
+      <ScrollAreaPrimitive.Viewport className="h-full max-h-[inherit] w-full rounded-[inherit] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+        {children}
+      </ScrollAreaPrimitive.Viewport>
+      {!hideScrollBar && <ScrollBar />}
+      <ScrollAreaPrimitive.Corner />
+    </ScrollAreaPrimitive.Root>
+  );
+}
+
+interface ScrollBarProps extends React.ComponentProps<typeof ScrollAreaPrimitive.Scrollbar> {
+  hidden?: boolean;
+}
+
+export function ScrollBar({ className, orientation = "vertical", hidden = false, ...props }: ScrollBarProps) {
+  if (hidden) return null;
+
   return (
     <ScrollAreaPrimitive.Scrollbar
-      data-slot="scroll-area-scrollbar"
-      data-orientation={orientation}
       orientation={orientation}
       className={cn(
-        "flex touch-none p-px transition-colors select-none data-horizontal:h-2.5 data-horizontal:flex-col data-horizontal:border-t data-horizontal:border-t-transparent data-vertical:h-full data-vertical:w-2.5 data-vertical:border-l data-vertical:border-l-transparent",
-        className
+        "flex touch-none select-none transition-opacity duration-200 opacity-0 group-hover:opacity-100 p-0.5 bg-transparent hover:bg-muted/50 w-2.5 rounded-full",
+        orientation === "vertical" && "h-full right-0 top-0 border-l border-transparent",
+        orientation === "horizontal" && "h-2.5 bottom-0 left-0 flex-col border-t border-transparent",
+        className,
       )}
       {...props}
     >
-      <ScrollAreaPrimitive.Thumb
-        data-slot="scroll-area-thumb"
-        className="relative flex-1 rounded-full bg-border"
-      />
+      <ScrollAreaPrimitive.Thumb className="relative flex-1 rounded-full bg-border hover:bg-muted-foreground/50 transition-colors" />
     </ScrollAreaPrimitive.Scrollbar>
-  )
+  );
 }
-
-export { ScrollArea, ScrollBar }

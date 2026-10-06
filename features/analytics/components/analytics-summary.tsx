@@ -13,7 +13,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 export function AnalyticsSummary() {
   const params = useParams();
   const categorySlug = params.category;
-  const category = getAnalyticsCategory(categorySlug)!;
+  const category = getAnalyticsCategory(categorySlug as string)!;
 
   if (!category) return null;
 

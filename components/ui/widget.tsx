@@ -40,7 +40,7 @@ export function WidgetIsland(props: Props) {
         className,
       )}
     >
-      <ScrollArea className="h-dvh">
+      <ScrollArea className="h-dvh" hideScrollBar>
         <div {...rest} className="p-4 flex flex-col gap-5">
           {children}
         </div>

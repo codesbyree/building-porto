@@ -16,7 +16,7 @@ export function Navigation() {
 
   return (
     <nav className="absolute top-0 left-1/2 -translate-x-1/2 p-4">
-      <ul className="flex gap-2 bg-gray-950/30 outline-gray-950/50 outline p-1 rounded-md backdrop-blur-xs">
+      <ul className="flex gap-2 bg-gray-950/30 outline-gray-950/50 outline p-1 rounded-md backdrop-blur-xs h-11">
         {navigationLinks.map((link) => {
           const isActive = pathname.includes(link.key);
 
@@ -25,7 +25,7 @@ export function Navigation() {
               <Link
                 href={link.href}
                 className={cn(
-                  "p-1.5 px-3 rounded-sm block text-gray-50 hover:bg-gray-950/80 transition-colors",
+                  "p-2 px-3 rounded-sm block text-gray-50 hover:bg-gray-950/80 transition-colors text-sm",
                   isActive && "bg-gray-950/50 dark:bg-gray-600/50 shadow-sm hover:bg-gray-600/70 dark:hover:bg-gray-600/70",
                 )}
               >

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
@@ -9,11 +9,12 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { cn } from "@/lib/utils";
 
 import type { AnalyticsCategory } from "@/features/analytics/data";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const toneClassName: Record<string, string> = {
-  amber: "text-amber-600 dark:text-amber-400 font-medium",
-  green: "text-green-600 dark:text-green-500",
-  cyan: "text-cyan-600 dark:text-cyan-400",
+  amber: "text-amber-300 dark:text-amber-400 font-medium",
+  green: "text-green-300 dark:text-green-500",
+  cyan: "text-cyan-300 dark:text-cyan-400",
   muted: "text-muted-foreground",
 };
 
@@ -21,8 +22,12 @@ export function AnalyticsDataTable({ category }: { category: AnalyticsCategory }
   const searchParams = useSearchParams();
   const logKey = searchParams.get("logKey") ?? "";
 
-  const [pageSize, setPageSize] = useState(5);
+  const [pageSize, setPageSize] = useState(20);
   const [page, setPage] = useState(1);
+
+  useEffect(() => {
+    setPage(1);
+  }, [logKey]);
 
   const filteredRows = useMemo(() => {
     if (!logKey.trim()) return category.rows;
@@ -36,47 +41,53 @@ export function AnalyticsDataTable({ category }: { category: AnalyticsCategory }
   const paginatedRows = filteredRows.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="overflow-hidden rounded-lg ring-1 ring-foreground/10">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              {category.columns.map((column) => (
-                <TableHead key={column.key}>{column.label}</TableHead>
-              ))}
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {paginatedRows.length === 0 && (
-              <TableRow>
-                <TableCell colSpan={category.columns.length} className="h-20 text-center text-muted-foreground">
-                  No results found.
-                </TableCell>
-              </TableRow>
-            )}
-            {paginatedRows.map((row, index) => (
-              <TableRow key={index}>
+    <div className="flex flex-col gap-2">
+      <div className="overflow-hidden p-2 pr-0 rounded-md bg-gray-950/60 outline outline-gray-950/80">
+        <ScrollArea className="max-h-[calc(100dvh-235px)] w-full pr-3">
+          <Table>
+            <TableHeader className="sticky top-0 z-10">
+              <TableRow className="border-gray-50/20 dark:border-border">
                 {category.columns.map((column) => (
-                  <TableCell key={column.key} className={cn(column.tone && toneClassName[column.tone])}>
-                    {row[column.key]}
-                  </TableCell>
+                  <TableHead key={column.key} className="text-sm text-gray-50">
+                    {column.label}
+                  </TableHead>
                 ))}
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+
+            <TableBody>
+              {paginatedRows.length === 0 ? (
+                <TableRow className="border-gray-50/20 dark:border-border">
+                  <TableCell colSpan={category.columns.length} className="h-20 text-center text-sm text-gray-50">
+                    No results found.
+                  </TableCell>
+                </TableRow>
+              ) : (
+                paginatedRows.map((row, index) => (
+                  <TableRow key={index} className="border-gray-50/20 dark:border-border">
+                    {category.columns.map((column) => (
+                      <TableCell key={column.key} className={cn("text-sm text-gray-50", column.tone && toneClassName[column.tone])}>
+                        {row[column.key]}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))
+              )}
+            </TableBody>
+          </Table>
+        </ScrollArea>
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground">
+      <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-gray-50/70 p-2 rounded-md bg-gray-950/60 outline outline-gray-950/80">
         <p>{filteredRows.length} total row(s)</p>
 
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <span>Rows per page</span>
             <Select
-              value={pageSize}
+              value={String(pageSize)}
               onValueChange={(value) => {
-                setPageSize(value as number);
+                setPageSize(Number(value));
                 setPage(1);
               }}
             >
@@ -84,9 +95,9 @@ export function AnalyticsDataTable({ category }: { category: AnalyticsCategory }
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value={5}>5</SelectItem>
-                <SelectItem value={10}>10</SelectItem>
-                <SelectItem value={20}>20</SelectItem>
+                <SelectItem value="5">5</SelectItem>
+                <SelectItem value="10">10</SelectItem>
+                <SelectItem value="20">20</SelectItem>
               </SelectContent>
             </Select>
           </div>

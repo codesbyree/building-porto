@@ -23,7 +23,7 @@ export function AnalyticsTabsNav() {
             <Link
               href={newUrl}
               className={cn(
-                "p-1.5 px-3 rounded-sm block text-gray-50 text-sm hover:bg-gray-950/20 transition-colors",
+                "p-1.5 px-3 rounded-sm block text-gray-50 text-sm hover:bg-gray-950/20 transition-colors line-clamp-1",
                 isActive && "bg-gray-950/50 dark:bg-gray-600/50 shadow-sm hover:bg-gray-600/70 dark:hover:bg-gray-600/70",
               )}
             >
