@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
@@ -25,9 +25,12 @@ export function AnalyticsDataTable({ category }: { category: AnalyticsCategory }
   const [pageSize, setPageSize] = useState(20);
   const [page, setPage] = useState(1);
 
-  useEffect(() => {
+  // Track logKey state during render to reset page without useEffect
+  const [prevLogKey, setPrevLogKey] = useState(logKey);
+  if (prevLogKey !== logKey) {
+    setPrevLogKey(logKey);
     setPage(1);
-  }, [logKey]);
+  }
 
   const filteredRows = useMemo(() => {
     if (!logKey.trim()) return category.rows;

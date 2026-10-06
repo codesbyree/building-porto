@@ -12,7 +12,7 @@ interface ScrollAreaProps extends React.ComponentProps<typeof ScrollAreaPrimitiv
 export function ScrollArea({ className, children, hideScrollBar = false, ...props }: ScrollAreaProps) {
   return (
     <ScrollAreaPrimitive.Root className={cn("relative group overflow-hidden", className)} {...props}>
-      <ScrollAreaPrimitive.Viewport className="h-full max-h-[inherit] w-full rounded-[inherit] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+      <ScrollAreaPrimitive.Viewport className="h-full max-h-[inherit] w-full rounded-[inherit] scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
         {children}
       </ScrollAreaPrimitive.Viewport>
       {!hideScrollBar && <ScrollBar />}
