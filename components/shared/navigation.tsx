@@ -18,7 +18,7 @@ export function Navigation() {
     <nav className="absolute top-0 left-1/2 -translate-x-1/2 p-4">
       <ul className="flex gap-2 bg-gray-950/30 outline-gray-950/50 outline p-1 rounded-lg backdrop-blur-xs">
         {navigationLinks.map((link) => {
-          const isActive = pathname === link.href;
+          const isActive = pathname.includes(link.href);
 
           return (
             <li key={link.href}>

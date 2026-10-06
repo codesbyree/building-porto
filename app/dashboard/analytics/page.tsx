@@ -1,7 +1,7 @@
+import { redirect } from "next/navigation";
+
+import { analyticsCategories } from "@/features/analytics/data";
+
 export default function AnalyticsPage() {
-  return (
-    <section className="w-full h-dvh bg-background">
-      <p>Hello from Analytics Page</p>
-    </section>
-  );
+  redirect(`/dashboard/analytics/${analyticsCategories[0].slug}`);
 }
