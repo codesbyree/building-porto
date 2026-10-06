@@ -46,7 +46,7 @@ export function SimulationForm() {
                   inputMode="numeric"
                   className="bg-gray-950/50 dark:bg-gray-950/60 h-10 p-4! text-sm! placeholder:text-sm! border-none! outline! outline-gray-950/80 focus-visible:outline-primary! text-gray-50! placeholder:text-gray-50/70! rounded-md!"
                 />
-                <FieldDescription>Decimal value is allowed</FieldDescription>
+                <FieldDescription className="text-gray-50/60">Decimal value is allowed</FieldDescription>
               </Field>
 
               <Field>
@@ -62,7 +62,7 @@ export function SimulationForm() {
 
                   className="bg-gray-950/50 dark:bg-gray-950/60 h-10 p-4! text-sm! placeholder:text-sm! border-none! outline! outline-gray-950/80 focus-visible:outline-primary! text-gray-50! placeholder:text-gray-50/70! rounded-md!"
                 />
-                <FieldDescription>Decimal value is allowed</FieldDescription>
+                <FieldDescription className="text-gray-50/60">Decimal value is allowed</FieldDescription>
               </Field>
 
               <Field>
@@ -78,14 +78,14 @@ export function SimulationForm() {
 
                   className="bg-gray-950/50 dark:bg-gray-950/60 h-10 p-4! text-sm! placeholder:text-sm! border-none! outline! outline-gray-950/80 focus-visible:outline-primary! text-gray-50! placeholder:text-gray-50/70! rounded-md!"
                 />
-                <FieldDescription>Decimal value is allowed</FieldDescription>
+                <FieldDescription className="text-gray-50/60">Decimal value is allowed</FieldDescription>
               </Field>
 
               <Field className="relative">
                 <FieldLabel htmlFor="humidity" className="text-gray-50">
                   Humidity
                 </FieldLabel>
-                <FieldDescription className="absolute top-0 right-0 w-max text-right">
+                <FieldDescription className="absolute top-0 right-0 w-max text-right text-gray-50/60">
                   <span>{humidity}% RH</span>
                 </FieldDescription>
                 <Slider value={humidity} onValueChange={(value) => setHumidity(value as number)} max={100} min={0} step={1} className="mt-2 w-full" aria-label="Humidity" />
@@ -95,7 +95,7 @@ export function SimulationForm() {
                 <FieldLabel htmlFor="lighting" className="text-gray-50">
                   Lighting
                 </FieldLabel>
-                <FieldDescription className="absolute top-0 right-0 w-max text-right">
+                <FieldDescription className="absolute top-0 right-0 w-max text-right text-gray-50/60">
                   <span>{lighting} Lux</span>
                 </FieldDescription>
                 <Slider value={lighting} onValueChange={(value) => setLighting(value as number)} max={1000} min={0} step={100} className="mt-2 w-full" aria-label="Humidity" />
