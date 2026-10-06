@@ -24,7 +24,7 @@ export function AnalyticsSummary() {
       <SelectedFloorWidget />
 
       <div className="p-2 bg-gray-950/60 outline-gray-950/80 w-full rounded-md outline min-h-11">
-        <h2 className="text-xs text-gray-50/60">Floor consumption</h2>
+        <h2 className="text-xs text-gray-50/60">Floor Consumption</h2>
 
         <p className="mt-2 flex items-baseline gap-2">
           <span className="text-2xl font-bold text-gray-50">{category.primary.value}</span>
