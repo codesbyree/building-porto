@@ -23,7 +23,7 @@ export function SelectedFloorWidget() {
   }
 
   return (
-    <div className="p-2 bg-gray-950/60 outline-gray-950/80 w-full rounded-md outline min-h-11">
+    <div className="p-2 bg-gray-950/60 outline-gray-600/20 w-full rounded-md outline min-h-11">
       <div className="flex items-center justify-between gap-2">
         <h2 className="text-gray-50/60 text-xs">Selected Floor</h2>
 

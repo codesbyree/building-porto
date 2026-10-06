@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 
 import { cn } from "@/lib/utils";
-import { analyticsCategories } from "@/features/analytics/data";
+import { TAB_NAVIGATION } from "@/config/routes";
 
 export function AnalyticsTabsNav() {
   const pathname = usePathname();
@@ -12,14 +12,14 @@ export function AnalyticsTabsNav() {
 
   return (
     <ul className="flex gap-2 bg-gray-950/30 outline-gray-950/50 outline p-1 rounded-md backdrop-blur-xs">
-      {analyticsCategories.map((category) => {
-        const newPathname = `/dashboard/analytics/${category.slug}`;
+      {TAB_NAVIGATION.map((category) => {
+        const newPathname = `/dashboard/analytics/${category.key}`;
         const currentParams = searchParams.toString();
         const newUrl = currentParams ? `${newPathname}?${currentParams}` : newPathname;
         const isActive = pathname === newPathname;
 
         return (
-          <li key={category.slug}>
+          <li key={category.key}>
             <Link
               href={newUrl}
               className={cn(

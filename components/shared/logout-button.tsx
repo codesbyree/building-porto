@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { LogOutIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { APP_ROUTES } from "@/config/routes";
 
 import { useAuthStore } from "@/store/auth-store";
 import { Button } from "@/components/ui/button";
@@ -16,7 +17,7 @@ export default function LogoutButton(props: React.ComponentProps<typeof Button>)
 
   function handleLogout() {
     logout();
-    router.replace("/auth");
+    router.replace(APP_ROUTES.public.auth);
   }
 
   return (

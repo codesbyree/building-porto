@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+import { APP_ROUTES } from "@/config/routes";
+
 import { useAuthStore } from "@/store/auth-store";
 
 import { Button } from "@/components/ui/button";
@@ -26,11 +28,11 @@ export function LoginForm() {
     }
 
     login(trimmed);
-    router.replace("/dashboard/building");
+    router.replace(APP_ROUTES.private.dashboard.monitoring);
   }
 
   return (
-    <Card className="w-full max-w-sm">
+    <Card className="w-full max-w-sm bg-gray-950/60 outline-gray-600/20 outline rounded-md">
       <CardHeader>
         <CardTitle>Sign in</CardTitle>
         <CardDescription>Enter your user ID to continue.</CardDescription>
@@ -38,7 +40,7 @@ export function LoginForm() {
 
       <CardContent>
         <form onSubmit={handleSubmit} id="login-form">
-          <FieldSet className="w-full max-w-xs">
+          <FieldSet className="w-full">
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="username">Username</FieldLabel>

@@ -23,7 +23,7 @@ export function AnalyticsSummary() {
     <div className="flex flex-col gap-4">
       <SelectedFloorWidget />
 
-      <div className="p-2 bg-gray-950/60 outline-gray-950/80 w-full rounded-md outline min-h-11">
+      <div className="p-2 bg-gray-950/60 outline-gray-600/20 w-full rounded-md outline min-h-11">
         <h2 className="text-xs text-gray-50/60">Floor Consumption</h2>
 
         <p className="mt-2 flex items-baseline gap-2">
@@ -34,7 +34,7 @@ export function AnalyticsSummary() {
         <p className={cn("mt-2 text-xs font-medium", isNegativeTrend ? "text-green-400" : "text-red-400")}>{category.primary.trend}</p>
       </div>
 
-      <div className="p-2 bg-gray-950/60 outline-gray-950/80 w-full rounded-md outline min-h-11">
+      <div className="p-2 bg-gray-950/60 outline-gray-600/20 w-full rounded-md outline min-h-11">
         <h2 className="text-xs text-gray-50/60">{category.secondary.label}</h2>
 
         <div className="mt-2 flex items-center justify-between gap-4">

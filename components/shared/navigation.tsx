@@ -4,20 +4,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
-
-const navigationLinks = [
-  { href: "/dashboard/building", label: "Building", key: "building" },
-  { href: "/dashboard/analytics/energy?selectedFloor=9", label: "Analytics", key: "analytics" },
-  { href: "/dashboard/simulations", label: "Simulations", key: "simulations" },
-];
+import { MAIN_NAVIGATION } from "@/config/routes";
 
 export function Navigation() {
   const pathname = usePathname();
 
   return (
     <nav className="absolute top-0 left-1/2 -translate-x-1/2 p-4">
-      <ul className="flex gap-2 bg-gray-950/30 outline-gray-950/50 outline p-1 rounded-md backdrop-blur-xs h-11">
-        {navigationLinks.map((link) => {
+      <ul className="flex gap-2 bg-gray-950/30 outline-gray-600/20 outline p-1 rounded-md backdrop-blur-xs h-11">
+        {MAIN_NAVIGATION.map((link) => {
           const isActive = pathname.includes(link.key);
 
           return (

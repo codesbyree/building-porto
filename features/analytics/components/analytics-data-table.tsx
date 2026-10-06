@@ -45,7 +45,7 @@ export function AnalyticsDataTable({ category }: { category: AnalyticsCategory }
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="overflow-hidden p-2 pr-0 rounded-md bg-gray-950/60 outline outline-gray-950/80">
+      <div className="overflow-hidden p-2 pr-0 rounded-md bg-gray-950/60 outline-gray-600/20 outline">
         <ScrollArea className="max-h-[calc(100dvh-235px)] w-full pr-3">
           <Table>
             <TableHeader className="sticky top-0 z-10">
@@ -81,7 +81,7 @@ export function AnalyticsDataTable({ category }: { category: AnalyticsCategory }
         </ScrollArea>
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-gray-50/70 p-2 rounded-md bg-gray-950/60 outline outline-gray-950/80">
+      <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-gray-50/70 p-2 rounded-md bg-gray-950/60 outline-gray-600/20 outline">
         <p>{filteredRows.length} total row(s)</p>
 
         <div className="flex items-center gap-4">

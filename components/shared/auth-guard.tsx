@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 
 import { useAuthStore } from "@/store/auth-store";
 import { Spinner } from "@/components/ui/spinner";
+import { APP_ROUTES } from "@/config/routes";
 
 /**
  * Wrap secure routes with this guard. Redirects to /auth when there is no
@@ -17,7 +18,7 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (hasHydrated && !userId) {
-      router.replace("/auth");
+      router.replace(APP_ROUTES.public.auth);
     }
   }, [hasHydrated, userId, router]);
 

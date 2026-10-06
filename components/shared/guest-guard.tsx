@@ -3,6 +3,8 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
+import { APP_ROUTES } from "@/config/routes";
+
 import { useAuthStore } from "@/store/auth-store";
 import { Spinner } from "@/components/ui/spinner";
 
@@ -17,7 +19,7 @@ export function GuestGuard({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (hasHydrated && userId) {
-      router.replace("/dashboard/building");
+      router.replace(APP_ROUTES.private.dashboard.monitoring);
     }
   }, [hasHydrated, userId, router]);
 

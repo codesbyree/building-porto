@@ -13,7 +13,7 @@ export function SimulationForm() {
 
   return (
     <section className="px-4 pb-4">
-      <form className="bg-gray-950/60 outline outline-gray-950/80 rounded-md p-2">
+      <form className="bg-gray-950/60 outline-gray-600/20 outline rounded-md p-2">
         <FieldGroup>
           <FieldSet>
             <FieldLegend className="text-gray-50">Simulation Parameters</FieldLegend>

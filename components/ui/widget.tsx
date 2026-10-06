@@ -35,7 +35,7 @@ export function WidgetIsland(props: Props) {
     <div
       ref={container}
       className={cn(
-        "slide-in w-100 h-dvh absolute z-10 top-0 left-0 bg-linear-to-r from-background/70 via-background/30 to-transparent",
+        "slide-in w-100 h-dvh absolute z-10 top-0 left-0 bg-linear-to-r from-background/60 via-background/30 to-transparent",
         position === "right" && "bg-linear-to-l right-0 left-auto",
         className,
       )}
@@ -70,7 +70,7 @@ export function WidgetContent(props: WidgetContentProps) {
     <div {...rest} className={cn("col-span-12 w-full flex flex-col gap-3", className)}>
       {title && <h2 className="text-sm text-gray-950/70 dark:text-gray-50/70">{title}</h2>}
 
-      <div className="gap-4 p-2 bg-gray-950/60 outline-gray-950/80 w-full rounded-md outline min-h-11 flex">{children}</div>
+      <div className="gap-4 p-2 bg-gray-950/60 outline-gray-600/20 w-full rounded-md outline min-h-11 flex">{children}</div>
     </div>
   );
 }
@@ -86,10 +86,10 @@ export function WidgetStat(props: WidgetStatProps) {
   const { title, value, unit, className } = props;
 
   return (
-    <div className={cn("flex flex-col p-2 rounded-sm bg-gray-950/20", className)}>
+    <div className={cn("flex flex-col p-2 rounded-sm bg-gray-950/40 outline outline-gray-800/50", className)}>
       <h3 className="text-gray-50/60 text-xs">{title}</h3>
       <p className="text-gray-50 text-lg font-semibold">
-        {value} {unit && <span className="text-sm ml-1 text-gray-50/60">{unit}</span>}
+        {value} {unit && <span className="text-xs ml-1 text-gray-50/60 font-normal">{unit}</span>}
       </p>
     </div>
   );
