@@ -17,7 +17,7 @@ export function GuestGuard({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (hasHydrated && userId) {
-      router.replace("/dashboard");
+      router.replace("/dashboard/building");
     }
   }, [hasHydrated, userId, router]);
 

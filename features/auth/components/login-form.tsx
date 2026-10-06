@@ -4,9 +4,10 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { useAuthStore } from "@/store/auth-store";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Field, FieldDescription, FieldContent, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field";
+import { Field, FieldDescription, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 export function LoginForm() {
@@ -15,7 +16,7 @@ export function LoginForm() {
   const [userId, setUserId] = useState("");
   const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const trimmed = userId.trim();
@@ -25,7 +26,7 @@ export function LoginForm() {
     }
 
     login(trimmed);
-    router.replace("/dashboard");
+    router.replace("/dashboard/building");
   }
 
   return (

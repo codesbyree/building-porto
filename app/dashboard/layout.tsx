@@ -1,10 +1,13 @@
+import { Navigation } from "@/components/shared/navigation";
 import { AuthGuard } from "@/components/shared/auth-guard";
-import DashboardLayout from "@/components/layout/dashboard-layout";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <AuthGuard>
-      <DashboardLayout>{children}</DashboardLayout>
+      <div className="overflow-hidden relative">
+        <Navigation />
+        {children}
+      </div>
     </AuthGuard>
   );
 }
