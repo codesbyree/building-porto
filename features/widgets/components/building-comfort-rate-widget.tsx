@@ -8,7 +8,7 @@ export function BuildingComfortRateWidget() {
           <WidgetStat title="PMV" value="-0.2" unit="Mean Vote" />
           <WidgetStat title="Comfort index" value="97" unit="%" />
           <WidgetStat title="PPD" value="14" unit="% Dissatisfied" className="col-span-2" />
-          <WidgetStat title="Live occupancy" value="0" unit="Persons" className="col-span-2" />
+          <WidgetStat title="Live occupancy" value="76" unit="Persons" className="col-span-2" />
         </section>
       </WidgetContent>
     </WidgetGrid>

@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 
 import { cn } from "cn";
 import { ScrollArea } from "./scroll-area";
+import { MorphingText } from "./morphing-text";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   position: "left" | "right";
@@ -89,7 +90,8 @@ export function WidgetStat(props: WidgetStatProps) {
     <div className={cn("flex flex-col p-2 rounded-sm bg-gray-950/40 outline outline-gray-800/50", className)}>
       <h3 className="text-gray-50/60 text-xs">{title}</h3>
       <p className="text-gray-50 text-lg font-semibold">
-        {value} {unit && <span className="text-xs ml-1 text-gray-50/60 font-normal">{unit}</span>}
+        <MorphingText textA={value} textB={value} />
+        {unit && <span className="text-xs ml-1 text-gray-50/60 font-normal">{unit}</span>}
       </p>
     </div>
   );
