@@ -28,7 +28,7 @@ export function LoginForm() {
     }
 
     login(trimmed);
-    router.replace(APP_ROUTES.private.dashboard.monitoring);
+    router.replace(APP_ROUTES.private.dashboard.monitoring.index);
   }
 
   return (

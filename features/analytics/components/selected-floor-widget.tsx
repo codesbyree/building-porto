@@ -2,10 +2,10 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { FLOORS } from "@/config/building";
 
-const floors = ["B2", "B1", "G", ...Array.from({ length: 13 }, (_, index) => String(index + 1))];
+import { Badge } from "@/components/ui/badge";
 
 const DEFAULT_FLOOR = "9";
 
@@ -33,7 +33,7 @@ export function SelectedFloorWidget() {
       </div>
 
       <div className="mt-2 grid grid-cols-6 gap-2 p-2 rounded-sm bg-gray-950/20">
-        {floors.map((floor) => {
+        {FLOORS.map((floor) => {
           const isActive = floor === activeFloor;
 
           return (
@@ -43,7 +43,7 @@ export function SelectedFloorWidget() {
               onClick={() => handleSelect(floor)}
               className={cn(
                 "flex h-10 min-w-8 w-full items-center justify-center rounded-xs px-2 text-xs font-medium text-gray-50/60 transition-colors hover:bg-gray-50/10 hover:text-gray-50 cursor-pointer",
-                isActive && "bg-primary text-gray-50 hover:bg-primary/70",
+                isActive && "bg-primary text-gray-50 hover:bg-red-600",
               )}
             >
               {floor}

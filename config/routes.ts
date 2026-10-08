@@ -14,14 +14,24 @@ export const APP_ROUTES = {
         comfort: "/dashboard/analytics/comfort",
         carbon: "/dashboard/analytics/carbon",
       },
-      monitoring: "/dashboard/monitoring",
+      monitoring: {
+        index: "/dashboard/monitoring",
+        basement1: "/dashboard/monitoring/B1",
+        floor1: "/dashboard/monitoring/1",
+        floor2: "/dashboard/monitoring/2",
+        floor3: "/dashboard/monitoring/3",
+        floor4: "/dashboard/monitoring/4",
+        floor5: "/dashboard/monitoring/5",
+        floor6: "/dashboard/monitoring/6",
+        floor7: "/dashboard/monitoring/7",
+      },
       simulation: "/dashboard/simulation",
     },
   },
 };
 
 export const MAIN_NAVIGATION = [
-  { href: APP_ROUTES.private.dashboard.monitoring, label: "Monitoring", key: "monitoring" },
+  { href: APP_ROUTES.private.dashboard.monitoring.index, label: "Monitoring", key: "monitoring" },
   { href: APP_ROUTES.private.dashboard.analytics.energy + "?selectedFloor=1", label: "Analytics", key: "analytics" },
   { href: APP_ROUTES.private.dashboard.simulation, label: "Simulation", key: "simulation" },
 ];
@@ -33,4 +43,15 @@ export const TAB_NAVIGATION = [
   { href: APP_ROUTES.private.dashboard.analytics.vibration, label: "Vibration", key: "vibration" },
   { href: APP_ROUTES.private.dashboard.analytics.comfort, label: "Comfort", key: "comfort" },
   { href: APP_ROUTES.private.dashboard.analytics.carbon, label: "Carbon", key: "carbon" },
+];
+
+export const FLOOR_NAVIGATION = [
+  { href: APP_ROUTES.private.dashboard.monitoring.basement1, label: "B1", key: "B1" },
+  { href: APP_ROUTES.private.dashboard.monitoring.floor1, label: "1", key: "1" },
+  { href: APP_ROUTES.private.dashboard.monitoring.floor2, label: "2", key: "2" },
+  { href: APP_ROUTES.private.dashboard.monitoring.floor3, label: "3", key: "3" },
+  { href: APP_ROUTES.private.dashboard.monitoring.floor4, label: "4", key: "4" },
+  { href: APP_ROUTES.private.dashboard.monitoring.floor5, label: "5", key: "5" },
+  { href: APP_ROUTES.private.dashboard.monitoring.floor6, label: "6", key: "6" },
+  { href: APP_ROUTES.private.dashboard.monitoring.floor7, label: "7", key: "7" },
 ];

@@ -10,7 +10,7 @@ export function Navigation() {
   const pathname = usePathname();
 
   return (
-    <nav className="absolute top-0 left-1/2 -translate-x-1/2 p-4">
+    <nav className="absolute top-0 left-1/2 -translate-x-1/2 p-4 z-10">
       <ul className="flex gap-2 bg-gray-950/30 outline-gray-600/20 outline p-1 rounded-md backdrop-blur-xs h-11">
         {MAIN_NAVIGATION.map((link) => {
           const isActive = pathname.includes(link.key);

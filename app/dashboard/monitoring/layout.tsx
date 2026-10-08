@@ -10,6 +10,7 @@ import {
   BuildingTotalCostWidget,
   BuildingComfortRateWidget,
 } from "@/features/widgets/components";
+import FloorNavigationWidget from "@/features/widgets/components/floor-navigation-widget";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -29,6 +30,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <BuildingComfortRateWidget />
         <AirQualityWidget />
       </WidgetIsland>
+
+      <FloorNavigationWidget />
 
       {children}
     </main>

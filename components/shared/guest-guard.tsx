@@ -19,7 +19,7 @@ export function GuestGuard({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (hasHydrated && userId) {
-      router.replace(APP_ROUTES.private.dashboard.monitoring);
+      router.replace(APP_ROUTES.private.dashboard.monitoring.index);
     }
   }, [hasHydrated, userId, router]);
 
