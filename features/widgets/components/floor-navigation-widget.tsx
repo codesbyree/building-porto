@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { cn } from "cn";
-import { useParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -11,8 +11,8 @@ import { ArrowLeftIcon } from "lucide-react";
 import { useRef } from "react";
 
 export default function FloorNavigationWidget() {
-  const params = useParams();
-  const floorSlug = params.floor;
+  const params = useSearchParams();
+  const floorSlug = params.get("level");
 
   const container = useRef<HTMLElement>(null);
   const backButtonEl = useRef<HTMLAnchorElement>(null);

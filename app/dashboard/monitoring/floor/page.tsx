@@ -67,7 +67,7 @@ export default function FloorPage() {
         onCreated={({ camera }) => {
           camera.lookAt(0, TARGET_Y, 0);
         }}
-        dpr={[1, 1.7]}
+        dpr={[1, 1]}
       >
         <Environment preset="city" environmentIntensity={0.6} />
         <hemisphereLight args={["#ffffff", "#334155", 0.2]} />

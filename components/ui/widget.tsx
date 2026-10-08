@@ -41,7 +41,7 @@ export function WidgetIsland(props: Props) {
       )}
     >
       <ScrollArea className="h-dvh" hideScrollBar>
-        <div {...rest} className="p-4 flex flex-col gap-5">
+        <div {...rest} className="p-4 flex flex-col gap-4">
           {children}
         </div>
       </ScrollArea>
@@ -67,10 +67,10 @@ export function WidgetContent(props: WidgetContentProps) {
   const { children, className, title, ...rest } = props;
 
   return (
-    <div {...rest} className={cn("col-span-12 w-full flex flex-col gap-2", className)}>
+    <div {...rest} className={cn("col-span-12 w-full flex flex-col gap-1", className)}>
       {title && <h2 className="text-sm text-gray-950/70 dark:text-gray-50/70">{title}</h2>}
 
-      <div className="gap-4 p-2 bg-gray-950/60 outline-gray-600/20 w-full rounded-md outline min-h-11 flex">{children}</div>
+      <div className="gap-4 p-2 bg-gray-950/60 outline-gray-600/20 w-full rounded-md outline min-h-11 flex backdrop-blur-sm">{children}</div>
     </div>
   );
 }
