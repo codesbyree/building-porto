@@ -1,11 +1,14 @@
 import { WidgetGrid, WidgetContent } from "@/components/ui/widget";
+import { FloorIndicator } from "@/components/ui/floor-indicator";
 
 export function LogoWidget() {
   return (
     <WidgetGrid>
       <WidgetContent className="col-span-12">
         <section className="flex-1 flex items-center">
-          <p className="text-sm text-gray-50 font-semibold">Urbansolv Building Monitoring</p>
+          <p className="text-sm text-gray-50 font-semibold">
+            UBM <FloorIndicator />
+          </p>
         </section>
       </WidgetContent>
     </WidgetGrid>

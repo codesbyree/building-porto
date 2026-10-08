@@ -7,6 +7,18 @@ import { Canvas } from "@react-three/fiber";
 import { PresentationControls, useGLTF, Center, useProgress, Environment } from "@react-three/drei";
 import * as THREE from "three";
 
+import {
+  ToolsWidget,
+  LogoWidget,
+  EnergyConsumptionWidget,
+  SmartLightingWidget,
+  HvacNodeWidget,
+  AirQualityWidget,
+  BuildingTotalCostWidget,
+  BuildingComfortRateWidget,
+} from "@/features/widgets/components";
+import { WidgetIsland } from "@/components/ui/widget";
+
 const MODEL_PATH = "/models/low_rise_wall_to_wall_office_building-opt.glb";
 const CAMERA_ANGLE_DEG = 80;
 const TARGET_Y = -7;
@@ -55,7 +67,21 @@ useGLTF.preload(MODEL_PATH);
 
 export default function MonitoringPage() {
   return (
-    <div className="w-dvw h-dvh bg-gray-200 dark:bg-gray-700 relative z-0 overflow-hidden">
+    <main className="w-dvw h-dvh bg-gray-200 dark:bg-gray-700 relative z-0 overflow-hidden">
+      <WidgetIsland position="left">
+        <LogoWidget />
+        <EnergyConsumptionWidget />
+        <SmartLightingWidget />
+        <HvacNodeWidget />
+      </WidgetIsland>
+
+      <WidgetIsland position="right">
+        <ToolsWidget />
+        <BuildingTotalCostWidget />
+        <BuildingComfortRateWidget />
+        <AirQualityWidget />
+      </WidgetIsland>
+
       <CustomLoader />
 
       <Canvas
@@ -93,6 +119,6 @@ export default function MonitoringPage() {
           </PresentationControls>
         </Suspense>
       </Canvas>
-    </div>
+    </main>
   );
 }
