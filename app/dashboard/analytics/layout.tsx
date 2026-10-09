@@ -3,7 +3,7 @@ import { ToolsWidget, LogoWidget } from "@/features/widgets/components";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <main className="bg-gray-200 dark:bg-gray-700 h-dvh">
+    <main className="bg-gray-400 dark:bg-gray-700 h-dvh">
       <Navigation />
 
       <div className="grid grid-cols-[400px_1fr_400px] gap-y-10">
