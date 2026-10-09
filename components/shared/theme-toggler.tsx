@@ -17,9 +17,9 @@ export default function ThemeToggle() {
         <span className="sr-only">Toggle theme</span>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="bg-gray-950/60 outline-gray-600/20 outline rounded-md backdrop-blur-sm">
         {["light", "dark", "system"].map((theme) => (
-          <DropdownMenuCheckboxItem checked={theme === activeTheme} className="capitalize" key={theme} onClick={() => setTheme(theme)}>
+          <DropdownMenuCheckboxItem checked={theme === activeTheme} className="capitalize text-gray-50" key={theme} onClick={() => setTheme(theme)}>
             {theme}
           </DropdownMenuCheckboxItem>
         ))}

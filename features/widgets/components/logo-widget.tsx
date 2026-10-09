@@ -5,7 +5,7 @@ export function LogoWidget() {
   return (
     <WidgetGrid>
       <WidgetContent className="col-span-12">
-        <section className="flex-1 flex items-center">
+        <section className="flex-1 flex items-center justify-between">
           <p className="text-sm text-gray-50 font-semibold">
             UBM <FloorIndicator />
           </p>

@@ -67,7 +67,7 @@ useGLTF.preload(MODEL_PATH);
 
 export default function MonitoringPage() {
   return (
-    <main className="w-dvw h-dvh bg-gray-200 dark:bg-gray-700 relative z-0 overflow-hidden">
+    <main className="w-dvw h-dvh bg-gray-400 dark:bg-gray-700 relative z-0 overflow-hidden">
       <WidgetIsland position="left">
         <LogoWidget />
         <EnergyConsumptionWidget />
