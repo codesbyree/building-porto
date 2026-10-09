@@ -1,3 +1,7 @@
+import { redirect } from "next/navigation";
+
 export default function DashboardPage() {
-  return <div className="p-6"></div>;
+  redirect("/dashboard/monitoring/");
+
+  return null;
 }
