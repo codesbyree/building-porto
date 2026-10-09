@@ -32,7 +32,7 @@ export const APP_ROUTES = {
 
 export const MAIN_NAVIGATION = [
   { href: APP_ROUTES.private.dashboard.monitoring.index, label: "Monitoring", key: "monitoring" },
-  { href: APP_ROUTES.private.dashboard.analytics.energy + "?selectedFloor=1", label: "Analytics", key: "analytics" },
+  { href: APP_ROUTES.private.dashboard.analytics.energy + "?selectedFloor=4", label: "Analytics", key: "analytics" },
   { href: APP_ROUTES.private.dashboard.simulation, label: "Simulation", key: "simulation" },
 ];
 

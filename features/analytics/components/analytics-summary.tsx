@@ -2,7 +2,7 @@
 
 import { Progress as ProgressPrimitive } from "@base-ui/react/progress";
 
-import { getAnalyticsCategory, type AnalyticsCategory } from "@/features/analytics/data";
+import { getAnalyticsCategory, type AnalyticsCategory } from "@/features/analytics/config/data";
 import { cn } from "@/lib/utils";
 
 import { ProgressIndicator, ProgressTrack } from "@/components/ui/progress";

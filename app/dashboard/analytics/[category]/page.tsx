@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { AnalyticsDataTable } from "@/features/analytics/components";
-import { analyticsCategories, getAnalyticsCategory } from "@/features/analytics/data";
+import { analyticsCategories, getAnalyticsCategory } from "@/features/analytics/config/data";
 
 export function generateStaticParams() {
   return analyticsCategories.map((category) => ({ category: category.slug }));

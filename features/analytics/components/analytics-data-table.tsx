@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
 
-import type { AnalyticsCategory } from "@/features/analytics/data";
+import type { AnalyticsCategory } from "@/features/analytics/config/data";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 const toneClassName: Record<string, string> = {

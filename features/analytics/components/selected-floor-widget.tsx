@@ -7,7 +7,8 @@ import { FLOORS } from "@/config/building";
 
 import { Badge } from "@/components/ui/badge";
 
-const DEFAULT_FLOOR = "9";
+const DEFAULT_FLOOR = "4";
+const ACTIVE_FLOOR = ["4"];
 
 export function SelectedFloorWidget() {
   const pathname = usePathname();
@@ -41,8 +42,9 @@ export function SelectedFloorWidget() {
               key={floor}
               type="button"
               onClick={() => handleSelect(floor)}
+              disabled={!ACTIVE_FLOOR.includes(floor)}
               className={cn(
-                "flex h-10 min-w-8 w-full items-center justify-center rounded-xs px-2 text-xs font-medium text-gray-50/60 transition-colors hover:bg-gray-50/10 hover:text-gray-50 cursor-pointer",
+                "flex h-10 min-w-8 w-full items-center justify-center rounded-xs px-2 text-xs font-medium text-gray-50/60 transition-colors hover:bg-gray-50/10 hover:text-gray-50 cursor-pointer disabled:opacity-50 disabled:cursor-default",
                 isActive && "bg-primary text-gray-50 hover:bg-red-600",
               )}
             >
