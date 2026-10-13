@@ -31,6 +31,11 @@ export function LoginForm() {
     router.replace(APP_ROUTES.private.dashboard.monitoring.index);
   }
 
+  function handleGuestLogin() {
+    login("Guest");
+    router.replace(APP_ROUTES.private.dashboard.monitoring.index);
+  }
+
   return (
     <Card className="w-full max-w-sm bg-gray-950/60 outline-gray-600/20 outline rounded-md">
       <CardHeader>
@@ -63,7 +68,15 @@ export function LoginForm() {
         </form>
       </CardContent>
 
-      <CardFooter>
+      <CardFooter className="flex flex-col gap-2">
+        <Button
+          type="button"
+          variant="outline"
+          className="w-full"
+          onClick={handleGuestLogin}
+        >
+          Login as guest
+        </Button>
         <Button type="submit" form="login-form" className="w-full">
           Continue
         </Button>
